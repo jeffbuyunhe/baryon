@@ -1,0 +1,110 @@
+.course-dropdown {
+    margin-top: 1vh;
+    padding-top: 2vh;
+    border-radius: 10px;
+    position: relative;
+}
+
+* > a {
+    color: #2E3BA6;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.course-home-menu {
+    list-style-type: none;  
+    padding-left: 2vw;
+    margin: 0;
+    padding-top: 1vh;
+    position: relative;
+}
+
+.course-home-menu > .menu-item {
+    position: relative;
+    padding-left: 2vw;
+    font-size: 1.5vw;
+}
+
+#course-home-button {
+    display: flex;
+    text-align: left;
+    font-size: 2vw;
+    padding-bottom: 2vh;
+    width: 100%;
+    background: transparent;
+    border: none !important;
+    color: #091157;
+    font-family: 'Outfit';
+}
+
+#upload-title {
+    color: #091157;
+}
+
+#upload-button {
+    color: #091157;
+    width: 22vw;
+    height: 10vh;
+    font-size: 2vw;
+    font-family: 'Outfit';
+    border-radius: 10px;
+    border: none !important;
+    background-color: #C3DEF8;
+}   
+
+.upload-container {
+    border-radius: 10px;
+    position: relative;
+    background-color: #C3DEF8;
+    left: -3vw;
+    width: 73vw;
+    height: 15vh;
+
+}
+
+#upload-button-container {
+    position: relative;
+    display: grid;
+    padding-top: 1vh;
+    padding-left: 1vw;
+}
+
+#upload-up-icon {
+    margin-right: 1vw;
+    float: right;
+}
+
+#upload-check-icon {
+    margin-right: 1vw;
+    float: right;
+}   
+
+#upload-attachment {
+    width: 12vw;
+    height: 5vh;
+    font-size: 1.5vw;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#file-to-upload {
+    display: flex;
+    align-items: flex-end;
+    width: fit-content;
+    margin-left: 1vw;
+    font-size: 1vw;
+}
+
+.files-container {
+    float: left;
+    position: relative;
+    width: fit-content;
+    top: 1vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.upload-option-container {
+    width: fit-content;
+}

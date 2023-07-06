@@ -1,0 +1,48 @@
+.card{
+    border-radius:1em;
+    margin: 5% 10%;
+    width:80%;
+    aspect-ratio:1/1;
+    overflow: hidden;
+    background-color:#fffff3;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+
+}
+
+.card-background{
+    width:100%;
+    height:60%;
+    transform-origin: 0 0;
+    transition: all 350ms ease-in-out;
+    
+}
+
+.card-info{
+    position:absolute;
+    padding-left:1.2%;
+    transition: all 350ms ease-in-out;
+
+}
+
+.card:hover .card-background{
+    transform: scale(1.66666);
+}
+.card:hover .card-info{
+    transform:translateY(10px);
+    color:#fffff3;
+}
+
+.card-title{
+    margin:0;
+    font-size:2.5vw;
+    width: 95%;
+    padding-right: 1em;
+}
+
+.card-description{
+    margin:0;
+    font-size:1vw;
+    width: 95%;
+    padding-right: 1em;
+}

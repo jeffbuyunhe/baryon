@@ -1,0 +1,26 @@
+.stats-card {
+    margin: 5%;
+    width: 90%;
+    aspect-ratio: 1/0.1;
+    border-radius: 7px;
+    border: 2px solid var(--dark-blue);
+    text-align: left;
+    color: #244BD6;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+.font-small {
+    margin: 5% 5% 2% 5%;
+    font-size: 1.3vw;
+}
+.font-large {
+    margin: 4% 5% 12% 5%;
+    font-size: 2vw;
+}
+.stats-card-icon {
+    margin: 35% 5% 5% 35%;
+    max-height: 3vw;
+    min-height: 1vw;
+    max-width: 3vw;
+    min-width: 1vw;
+}

@@ -1,0 +1,19 @@
+Home Page components
+This doc outlines all the files for Home Page 
+
+=====================================================================
+
+File name: HomePage.js
+Purpose: this seperates the home page into 3 columns to include all 3 components
+        needed for student home page including HomePageNav, ClassList and 
+        NotificationColumn
+
+File name: ClassList
+Purpose: this is the main component of HomePage, it includes
+        subcomponents that displays the individual classes aswell as
+        display the school name at the top
+
+File name: ClassCard.js
+Purpose: this is the individual component of in ClassList, it has
+        no further custom defined subcomponents
+

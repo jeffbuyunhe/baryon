@@ -1,0 +1,27 @@
+:root{
+  --purple: #565EB5;
+  --red: #EB7E7E;
+  --green: #7CED79;
+  --teal: #78ECDE;
+  --yellow: #DBC969;
+  --pink: #E37EF3;
+  --dark-blue: #091157;
+  --text-grey: #ACACAC;
+
+}
+
+@font-face {
+  font-family: outfit;
+  src: url('./fonts/Outfit-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: oswald;
+  src: url('./fonts/Oswald-Regular.ttf');
+}
+
+body {
+  margin: 0;
+  padding:0 !important;
+  font-family:'outfit';
+}

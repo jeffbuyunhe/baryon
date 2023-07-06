@@ -1,0 +1,18 @@
+Admin Home Page components
+This doc outlines all the files for Course Home Page 
+
+=====================================================================
+
+File name: CourseHomePge.js
+Purpose: this file defines the administrator home page. It uses CourseNavBar
+        component to display functionality including course resources. 
+        It also uses CourseHomePageDropdown component to display the 
+        relevant course material, like syllabus and the lecture notes
+
+File name: CourseNavBar.js
+Purpose: this file defines the CourseNavBar component used to display the links
+        to other resources in the course such as media and assignment grades
+
+File name: CourseHomePageDropdown.js
+Purpose: this file defines the CourseHomePageDropdown component used to display material relevant to 
+        the course

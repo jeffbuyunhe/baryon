@@ -1,0 +1,4 @@
+.student-grades-home-page-layout{
+    display:grid;
+    grid-template-columns: 5% 25% 70% 
+}

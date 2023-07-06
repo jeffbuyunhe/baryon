@@ -1,0 +1,110 @@
+.course-homepage-layout{
+    display:grid;
+    grid-template-columns: 5% 18% 77%;
+}
+
+.course-items-layout {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+    padding-right: 0.5vw;
+    max-height: 100vh;
+}
+
+#create-label {
+    position: relative;
+    bottom: 0;
+    width: 17vw;
+    height: 10vh;
+    font-size: 2vw;
+    font-family: 'Outfit';
+    border-radius: 10px;
+    border: none !important;
+    background-color: #C3DEF8;
+    color: #091157;
+}
+
+
+.instructor-view {
+    z-index: 1;
+    position: relative;
+    bottom: 3vh;
+}
+
+#icon-add {
+    top: 0.5vh;
+    position: relative;
+}
+
+#icon-check {
+    font-size: 5vh;
+    position: relative;
+    bottom: 0;
+}
+
+#icon-up {
+    font-size: 5vh;
+}
+
+.add-label-view {
+    margin-left: 1vw;
+    padding-left: 1vw;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 2;
+    height: 22vh;
+    width: 72vw;
+    border-radius: 10px;
+    background-color: #C3DEF8;
+}
+
+
+.label-header-div > h2{
+    margin-top: 2vh;
+    font-size: 2vw;
+    margin-bottom: 0;
+    font-family: 'Outfit';
+    color: #091157;
+    font-weight: normal;
+
+}
+
+.label-header-div > h3 {
+    margin-top: 2vh;
+    font-size: 1.5vw;
+    font-family: 'Outfit';
+    color: #32367C;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+#create-input {
+    border-radius: 10px;
+    margin-top: 1vh;
+    width: 50vw;
+    height: 5vh;
+    font-size: inherit;
+    border: 1px solid black;
+}
+
+.add-label-icons {
+    margin-right: 1vw;
+    position: relative;
+    height: 100%;
+    width: fit-content;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.labels {
+    height: 95vh;
+    width: 99%;
+    padding-top: 1vh;
+    position: relative;
+    overflow-y: auto;
+}
+
+#spacer {
+    margin-bottom: 5em;
+}

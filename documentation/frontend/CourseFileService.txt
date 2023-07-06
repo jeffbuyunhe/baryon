@@ -1,0 +1,7 @@
+The CourseFileService contains all endpoint calls to the course file api
+
+=====================================================================
+
+getByCourseFileId: get course file by id
+
+createCrouseFile: creates a course file

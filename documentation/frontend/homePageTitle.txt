@@ -1,0 +1,7 @@
+Home Page Title component
+
+=====================================================================
+
+File Name: HomePageTitle.js
+purpose: this file defines the home page title component. It is used to display
+        the organization name on user homepage and admin homepage

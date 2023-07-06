@@ -1,0 +1,147 @@
+Organization API Documentation
+
+This doc outlines all the endpoints for organization operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/organizations
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all organizations, the POST method will
+         create all organizations
+
+AUTHENTICATION: Must be admin for POST
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/organizations will give all organizations
+
+        RESPONSE BODY:
+            [
+                {
+                    id: 'sdai3loq4b32hli1l',
+                    name: 'University of Toronto',
+                    admins: ['feibfid3jdk332f', 'f32jfo42fji2hfwe']
+                },
+                {
+                    id: '3jf93j3feifowf3299fu93aj',
+                    name: 'University of Waterloo',
+                    admins: ['f3o2fj23ffew', '009f44j29fi42hf32dffa']
+                },
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/organizations will create an organization
+
+        SAMPLE REQUEST BODY:
+            {
+                name: 'UofT'    <-- REQUIRED PARAM, must be unqiue else 400 error
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                name: 'UofT',
+                admins: []
+            }
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET, PUT, DELETE
+
+PURPOSE: The GET method will return an organization, the PUT method will
+         update an organization, the DELETE method deletes an organization
+
+         PUT can modify an organization's name or list of admins
+
+AUTHENTICATION: PUT and DELETE need user to be authenticated/logged in
+               ( Requesting user is an admin)
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/organizations/6asdiasdj1231312 will the corresponding organization with same id
+
+        RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                name: 'UofT',
+                admins: ['fei2oi42on2ni2or42', 'aoj42jf9jgiroj2oief', '939jf92fjfhg842']
+            },
+
+    PUT
+        Issue GET to localhost:3001/api/organizations/6asdiasdj1231312 will update an organization
+
+        optional parameter updateValue: takes value 1 or 2, 1 indicates request admins to be deleted, 2 indicates request admins to be added
+        If no updateValue given admin array will be updated to request admins list
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                name: 'UofA', <-- MUST BE UNQIUE IE NOT ALREADY IN DB
+                admins: ['fj3iof2oino2i', 'i3fi2ofnio2fbewf'],
+                updateValue: 2  <-- OPTIONAL PARAM
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                name: 'UofA',
+                admins: ['fj3iof2oino2i', 'i3fi2ofnio2fbewf', 'f3ojo3f2f32f4', 'kef32oifi2o32fj'],
+            },
+
+    DELETE
+        Issue DELETE to localhost:3001/api/organizations/6asdiasdj1231312 will delete an organization
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        Expect a 204 response code
+
+=====================================================================
+
+ENDPOINT: /name/:name
+METHODS: GET
+
+PURPOSE: The GET method will return the organization with the given name
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/organizations/name/uoft will return the corresponding organization with name uoft
+
+        RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                name: 'UofT',
+                admins: ['fei2oi42on2ni2or42', 'aoj42jf9jgiroj2oief', '939jf92fjfhg842']
+            }
+
+=====================================================================

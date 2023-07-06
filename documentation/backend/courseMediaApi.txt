@@ -1,0 +1,104 @@
+Course Media API Documentation
+
+This doc outlines all the endpoints for course media operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/media
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all courses, the POST method will
+         create a course
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/media will give all media
+
+        RESPONSE BODY:
+	[
+    {
+        "label": "Lecture 1",
+        "url": "https://www.youtube.com/watch?v=ieu3VzKkp1c",
+        "courseId": "6372fd17fe63fb26a518fcad",
+        "id": "6372fd5ff9576e95d149cba7"
+    }
+]
+
+    POST
+        Issue POST to localhost:3001/api/media will create a media
+	  all fields are necessary
+        SAMPLE REQUEST BODY:
+		{
+    "label": "Lecture 1",
+    "url": "https://www.youtube.com/watch?v=ieu3VzKkp1c",
+    "courseId": "6372fd17fe63fb26a518fcad",
+}
+
+        SAMPLE RESPONSE BODY:
+{
+    "label": "Lecture 1",
+    "url": "https://www.youtube.com/watch?v=ieu3VzKkp1c",
+    "courseId": "6372fd17fe63fb26a518fcad",
+    "id": "6372fd5ff9576e95d149cba7"
+}
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET,PUT,DELETE
+
+PURPOSE: The GET method will return a media, the PUT method will
+         update a media's details, the DELETE method deletes a media
+
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/media/6372fd5ff9576e95d149cba7
+
+        RESPONSE BODY:
+		{
+    "label": "Lecture 1",
+    "url": "https://www.youtube.com/watch?v=ieu3VzKkp1c",
+    "courseId": "6372fd17fe63fb26a518fcad",
+    "id": "6372fd5ff9576e95d149cba7"
+}
+
+    PUT
+        Issue PUT to localhost:3001/api/media/6372c6239172e2c3ec69135a will update a media details
+
+        all parameters are optional:
+		label,title,courseId,courseFileId
+
+
+        SAMPLE REQUEST BODY:
+           {
+
+    "label":"A very good title"
+
+}
+        SAMPLE RESPONSE BODY:
+           {
+    "label": "A very good title",
+    "url": "https://www.youtube.com/watch?v=ieu3VzKkp1c",
+    "courseId": "6372fd17fe63fb26a518fcad",
+    "id": "6372fd5ff9576e95d149cba7"
+}
+
+    DELETE
+        Issue DELETE to localhost:3001/api/media/6372c6239172e2c3ec69135a will delete a media
+        Expect a 204 response code

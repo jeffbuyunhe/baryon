@@ -1,0 +1,11 @@
+.student-class-list-grid-design{
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    padding-bottom:5em;
+}
+
+.homepage-class-list-title{
+    margin-left: 4%;
+    margin-bottom: 2%;
+    font-size: 3vw;
+}

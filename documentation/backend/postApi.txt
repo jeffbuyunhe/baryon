@@ -1,0 +1,271 @@
+Instructors API Documentation
+
+This doc outlines all the endpoints for post operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/posts
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all posts, the POST method will
+         create a post
+
+AUTHENTICATION: POST must be a student/instructor/admin in the corresponding forum given by forumId and course given by courseid
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        401 - Unauthorized
+        500 - Server error
+
+POSSIBLE 400 ERRORS: CREATE ERROR, DUPLICATE POST, FORUM NOT FOUND
+
+NOTES: content must not be empty else error is returned
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/posts will give all posts
+
+        RESPONSE BODY:
+            [
+                {
+                    id: 'sdai3loq4b32hli1l',
+                    title: 'Hello Everyone!',
+                    author: 'jo3jo2jfpo3le',
+                    likes: 0,
+                    content: 'Great to meet everyone!',
+                    comments: [],
+                    created: 1519211810362
+                },
+                {
+                    id: 'jfo2jj3foeijfw',
+                    title: 'A2 Question',
+                    author: '9uf93ufhioef2oi',
+                    likes: 2,
+                    content: 'When will a2 be posted?',
+                    comments: [],
+                    created: 1519211810362
+                }
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/posts will create a post
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                title: 'A2 Clarification',
+                author: '9uf93ufhioef2oi',
+                content: 'Are allowed to ...',
+                courseid: 'sdai3loq4b3asd2das1l',
+                forumId: 'jfojefijfijfiejfije',
+
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: 'sdai3loq4b32das1l',
+                title: 'General',
+                courseId: 'sdai3loq4b3asd2das1l
+                organizationId: 'jfojefijfijfiejfije'
+                posts: []
+            }
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET, DELETE
+
+PURPOSE: The GET method will return an forum, the DELETE method deletes a post
+
+AUTHENTICATION: DELETE requires the user to be the author of the post, an instructor in the course or admin of the organization.
+                For both endpoints, authentication is required.
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        204 - Will indicate DELETE is successful
+        401 - Unauthorized
+        400 - Something is wrong with your request
+        500 - Server error
+
+POSSIBLE 400 ERRORS: DESTROY ERROR, GET ERROR
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/posts/6asdiasdj1231312 will give post for id
+
+        SAMPLE HEADER:
+        {
+            Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+        }
+
+        RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                title: 'Hi Everyone!',
+                author: 'foejfoo2j1j32jf39',
+                content: 'Nice to meet everyone!',
+                likes: 2,
+                comments: [],
+                created: 1519211810362
+            },
+
+    DELETE
+        Issue DELETE to localhost:3001/api/discussionBoards/6asdiasdj1231312 will delete a post
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                courseid: 'h1920hf9o2hfi23'
+            }
+
+        Expect a 204 response code
+
+=====================================================================
+
+ENDPOINT: /:id
+METHOD: PUT
+
+PURPOSE: The PUT method updates post information
+
+AUTHENTICATION: User must be author of post, or instructor of course or admin of org
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid email)
+        401 - Unauthorized
+        500 - Server error
+
+POSSIBLE 400 ERROR CODES: UPDATE ERROR, DUPLICATE POST
+
+NOTES: content must not be empty else error is returned
+
+EXAMPLES:
+    PUT:
+        Issue PUT to localhost:3001/api/posts/fi3oi1hfoi32hf2hef
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                title: 'nvm ...',
+                content: "nvm"
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: 'fi3oi1hfoi32hf2hef',
+                title: 'nvm ...',
+                content: 'nvm',
+                author: 'foejfoo2j1j32jf39',
+                likes: 2,
+                comments: [],
+                created: 1519211810362
+            },
+
+=====================================================================
+
+ENDPOINT: /add_comments/:id
+METHODS: PUT
+
+PURPOSE:  PUT can add comments to a post
+
+AUTHENTICATION: Must be member of course or admin of org, authenticated
+
+EXPECTED CODES:
+        200 - Will indicate the PUT is successful
+        401 - Unauthorized
+        400 - Something is wrong with your request
+        500 - Server error
+
+POSSIBLE 400 ERROR CODES: UPDATE ERROR
+
+EXAMPLES:
+    PUT:
+        Issue PUT to localhost:3001/api/posts/add_comments/fi3oi1hfoi32hf2hef
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                courseid: 'jojofjoewjpo29',
+                comments: [
+                    'ojfpoewjfpj323jf'  <- comment is mongoose.Types.objectID 
+                ]
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: 'fi3oi1hfoi32hf2hef',
+                title: 'nvm ...',
+                content: 'nvm',
+                author: 'foejfoo2j1j32jf39',
+                likes: 2,
+                comments: [
+                    'ojfpoewjfpj323jf'
+                ],
+                created: 1519211810362
+            },
+
+=====================================================================
+
+ENDPOINT: /delete_comments/:id
+METHODS: PUT
+
+PURPOSE:  PUT can delete a comment from a post
+
+AUTHENTICATION: Must author of comment or admin of org or course instructor, authenticated
+
+EXPECTED CODES:
+        200 - Will indicate the PUT is successful
+        401 - Unauthorized
+        400 - Something is wrong with your request
+        500 - Server error
+
+POSSIBLE 400 ERROR CODES: UPDATE ERROR
+
+EXAMPLES:
+    PUT:
+        Issue PUT to localhost:3001/api/posts/delete_comments/fi3oi1hfoi32hf2hef
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                courseid: 'jojofjoewjpo29',
+                comments: 'ojfpoewjfpj323jf'  <- comment is mongoose.Types.objectID 
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: 'fi3oi1hfoi32hf2hef',
+                title: 'nvm ...',
+                content: 'nvm',
+                author: 'foejfoo2j1j32jf39',
+                likes: 2,
+                comments: [],  <- comment objectID was removed from post comments
+                created: 1519211810362
+            },
+
+=====================================================================

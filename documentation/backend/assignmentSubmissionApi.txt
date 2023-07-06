@@ -1,0 +1,215 @@
+Course API Documentation
+
+This doc outlines all the endpoints for assignment Submission operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/assignmentSubmission
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all assignment Submission, the POST method will
+         create an assignment Submission
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/assignmentSubmission will give all Assignment Submission
+
+        RESPONSE BODY:
+	[
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "qiufeilo",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb857"
+    },
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "qiufeilo",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb827"
+        "markObtained" : 98
+
+    },
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "qiufeilo",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb847",
+        "markObtained" : 98,
+        "feedback": "Good job Chris" 
+        
+    },
+    ]
+
+    POST
+        Issue POST to localhost:3001/api/assignmentSubmission will create an assignment Submission
+	    all fields are necessary
+        SAMPLE REQUEST BODY:
+	{
+        "assignmentId": "6361d070006ede8810801191",
+        "studentId": "6361a11256e5a60610ef5712",
+        "encodedFile" : "None"
+	}
+
+        SAMPLE RESPONSE BODY:
+        {
+        "assignmentId": "6361d070006ede8810801191",
+        "studentId": "6361a11256e5a60610ef5712",
+        "submissionDate": "2022-11-02T04:52:42.000Z",
+        "encodedFile": "None",
+        "id": "6361f79a1a216ef517ea0057"
+        }
+
+
+
+ENDPOINT: /:grade
+METHODS: POST
+
+PURPOSE: The POST method will update the mark of an assignment Submission
+
+AUTHENTICATION: no authentication for now
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/assignmentSubmission/grade will grade an Assignment Submission
+
+
+        SAMPLE REQUEST BODY:
+	{
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "qiufeilo",
+        "markObtained" : 98,
+        "feedback" : "Good job Chris"
+	}
+
+
+        SAMPLE RESPONSE BODY:
+	[
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "qiufeilo",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb857"
+        "markObtained" : 98,
+        "feedback" : "Good job Chris"
+    },
+    ]
+
+
+
+ENDPOINT: /:assignmentid/:studentid
+METHODS: GET
+
+PURPOSE: The GET method will return a student's specfic assignment submission
+
+AUTHENTICATION: no authentication for now
+
+EXPECTED CODES:
+        200 - Will indicate GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/assignmentSubmission/6361e4b79e9b2ff7f74d6ed0/6361a11256e5a60610ef5712 will return an Assignment Submission
+
+
+        SAMPLE RESPONSE BODY:
+	[
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "qiufeilo",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb857"
+        "markObtained" : 98,
+        "feedback" : "Good job Chris"
+    },
+    ]
+
+
+
+
+
+ENDPOINT: /student/:studentid
+METHODS: GET
+
+PURPOSE: The GET method will return a student's all assignment submissions
+
+AUTHENTICATION: no authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue GET to localhost:3001/api/assignmentSubmission/student/6361a11256e5a60610ef5712 will return an Assignment Submission
+
+
+        SAMPLE RESPONSE BODY:
+	[
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "636496af56f3a0eed348152c",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb857"
+        "markObtained" : 98,
+        "feedback" : "Good job Chris"
+    }
+    ]
+
+
+
+
+ENDPOINT: /course/:courseid/:assignmentid
+METHODS: GET
+
+PURPOSE: The GET method will return all assignment submissions within a course about a specific assignment
+
+AUTHENTICATION: no authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue GET to localhost:3001/api/assignmentSubmission/course/6361a11256e5a60610ef5712/634b291c85ef7081551471a5 will return an Assignment Submission
+
+
+        SAMPLE RESPONSE BODY:
+	[
+    {
+        "assignmentId": "634b291c85ef7081551471a5",
+        "studentId": "636496af56f3a0eed348152c",
+        "submissionDate" 2022-10-20T00:40:48.000+00:00,
+        "encodedFile" : "None",
+        "id": "634b9a979bd4f89c49fbb857"
+        "markObtained" : 98,
+        "feedback" : "Good job Chris"
+    }
+    ]

@@ -1,0 +1,55 @@
+.container{
+    width: 100%;
+    border-collapse: collapse;
+    border: 5px;
+    margin: 4% auto;
+}
+
+.table-head{
+    font-size: 1.6vw;
+    padding-bottom: 1%;
+    border-bottom: 0.1vw solid #7E7E7E;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.table-row{
+    font-size: 1.5vw;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: left;
+    padding-left: 2%;
+    color: #2E3BAF;
+}
+
+.table-row-text{
+    font-size: 1.5vw;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.table-row-mark-fail{
+    font-size: 1.5vw;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: left;
+    padding-left: 2%;
+    color: red;
+}
+
+.table-row-mark-pass{
+    font-size: 1.5vw;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: left;
+    padding-left: 2%;
+    color: green
+}
+
+.feedback{
+    font-size: 1.2vw;
+    padding-left: 2%;
+    width: 96%;
+}

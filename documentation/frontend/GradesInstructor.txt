@@ -1,0 +1,20 @@
+Grades Components
+
+=====================================================================
+
+File name: GradesInstructor.js
+Purpose: This page displays assignments available for marking as well 
+as the sidebars for navigation
+
+File: InstructorGradesTable.js
+Purpose: Renders rows of table containing assignments for marking
+as well as headers
+
+File: InstructorGradesRow.js
+Purpose: Renders indiviual rows of the table containg data for single
+assignment
+
+File: InstructorGradesItem.js
+Purpose: Renders entry in table for each row
+
+

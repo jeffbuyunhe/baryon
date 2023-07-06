@@ -1,0 +1,190 @@
+Announcement API Documentation
+
+This doc outlines all the endpoints for announcement operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/announcements
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET
+
+PURPOSE: The GET method will return all announcements for a student
+
+AUTHENTICATION: User must be logged in and a student
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/announcements will give all announcements for the requesting user
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            [
+                {
+                    announcement: 'hey',
+                    organizationId: '230144hjpd9qhp',
+                    instructorId: '13813921',
+                    courseId: '213912401',
+                    createdAt: DATE,
+                    id: '21301238'
+                },
+                {
+                    announcement: 'hey guys',
+                    organizationId: '230144hjpd9qhp',
+                    instructorId: '13813921',
+                    courseId: '213912401',
+                    createdAt: DATE,
+                    id: '213012asda38'
+                },
+            ]
+
+=====================================================================
+
+ENDPOINT: /:courseid
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all announcements for a course, the POST method will
+         create an announcement for the course
+
+AUTHENTICATION: User must be logged in and a member of the course, POST has additional requirement
+         where the user must be an instructor
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/announcements/213912401 will give all announcements for course 213912401
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            [
+                {
+                    announcement: 'hey',
+                    organizationId: '230144hjpd9qhp',
+                    instructorId: '13813921',
+                    courseId: '213912401',
+                    createdAt: DATE,
+                    id: '21301238'
+                },
+                {
+                    announcement: 'hey guys',
+                    organizationId: '230144hjpd9qhp',
+                    instructorId: '13813921',
+                    courseId: '213912401',
+                    createdAt: DATE,
+                    id: '213012asda38'
+                },
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/announcements/213912401 will create an announcement
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                announcement: 'sup'
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                announcement: 'sup',
+                organizationId: '230144hjpd9qhp',
+                instructorId: '13813921',
+                courseId: '213912401',
+                createdAt: DATE,
+                id: '21301238'
+            }
+
+=====================================================================
+
+ENDPOINT: /:courseid/:id
+METHODS: GET, PUT, DELETE
+
+PURPOSE: The GET method will return a specific announcement, the PUT method will
+         update an announcement, the DELETE method deletes an announcement
+
+AUTHENTICATION: Must be logged in and member of course,
+            PUT and DELETE need user to be an instructor
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/announcements/213912401/21301238 will give an announcement
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            {
+                announcement: 'sup',
+                organizationId: '230144hjpd9qhp',
+                instructorId: '13813921',
+                courseId: '213912401',
+                createdAt: DATE,
+                id: '21301238'
+            }
+
+    PUT
+        Issue PUT to localhost:3001/api/announcements/213912401/21301238 will update an announcement
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                announcement: 'sup 2',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                announcement: 'sup 2',
+                organizationId: '230144hjpd9qhp',
+                instructorId: '13813921',
+                courseId: '213912401',
+                createdAt: DATE,
+                id: '21301238'
+            }
+
+    DELETE
+        Issue DELETE to localhost:3001/api/announcements/213912401/21301238 will delete an announcement
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        Expect a 204 response code
+
+=====================================================================

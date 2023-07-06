@@ -1,0 +1,19 @@
+Admin Home Page components
+This doc outlines all the files for Admin Home Page 
+
+=====================================================================
+
+File name: AdminHomePage.js
+Purpose: this file defines the administrator home page. It uses ManagementCard
+        component to display functionality including managing courses faculty 
+        members and students. It also uses StatsCard component to display the 
+        relevant statistics relating to admin's organization, like the number of 
+        courses currently being offered, and the number of faculty members and students
+
+File name: ManagementCard.js
+Purpose: this file defines the ManagementCard component used to display the main
+        functionality offered on admin home page
+
+File name: StatsCard.js
+Purpose: this file defines the StatsCard component used to diaplay relevant statistics
+        relating to the admin's organization

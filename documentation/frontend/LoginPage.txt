@@ -1,0 +1,11 @@
+Login components
+This doc outlines all the files for Login Pages
+
+=====================================================================
+
+File name: UserLoginPage.js
+Purpose: This page is used to allowed user to login to Baryon plaform to access the services. 
+
+This page is one component and consists of a header welcoming the user
+and a form for user to enter their email and password.
+

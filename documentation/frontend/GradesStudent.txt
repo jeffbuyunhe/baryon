@@ -1,0 +1,19 @@
+Grades Components
+
+=====================================================================
+
+File name: GradesStudent.js
+Purpose: This page displays student grades and feedback as well as 
+the sidebars for navigation
+
+File: StudentGradesTable.js
+Purpose: Renders rows of table containing assignment info and Grades 
+as well as headers
+
+File: StudentGradesRow.js
+Purpose: Renders indiviual rows of the table
+
+File: StudentGradesItem.js
+Purpose: Renders entry in table for each row
+
+

@@ -1,0 +1,56 @@
+.table-head{
+    font-size: 1.8vw;
+    padding-bottom: 1%;
+    border-bottom: 0.1vw solid #7E7E7E;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.table-row{
+    font-size: 1.5vw;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.mark-input{
+    font-size: 1.5vw;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: left;
+    padding-left: 4%;
+    font-family: Outfit;
+    width: 30%;
+}
+
+.feedback-instructor{
+    font-size: 1.2vw;
+    width: 98%;
+    margin-bottom: 0.5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: Outfit;
+}
+
+.submit-grade{
+    background-color: #3b3f87;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    font-family: Outfit;
+    font-weight: bold;
+    font-size: 1.5vw;
+    height: 3vw;
+    margin-top: 2%;
+    width: 8vw;
+}
+
+.submit-grade:hover {
+    background-color: #232551;
+}
+  
+.submit-grade:active {
+    background-color: #3b3f87;
+}

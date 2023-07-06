@@ -1,0 +1,12 @@
+Home Page Navbar components
+This doc outlines all the files for Home Page Navbar
+
+=====================================================================
+
+File Name: Navbar.js
+purpose: this file defines the basic structuring of the home page navbar,
+        it includes subcomponent NavbarIcon
+
+File Name: NavbarIcon.js
+purpose: this file defines the individual circles/buttons on the home page
+        navbar. It is a subcomponent of Navbar

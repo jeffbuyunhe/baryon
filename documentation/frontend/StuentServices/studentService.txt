@@ -1,0 +1,15 @@
+The StudentService contains all endpoint calls to the student api
+
+=====================================================================
+
+create: creates a student
+
+retrieve: retrieve all students
+
+retrieveSingle: retrieve one student by id
+
+retrieveAllByOrgId: retrieve all students by organization id
+
+update: update a student
+
+destroy: deletes a student

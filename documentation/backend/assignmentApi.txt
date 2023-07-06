@@ -1,0 +1,208 @@
+Course API Documentation
+
+This doc outlines all the endpoints for assignment operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/assignment
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: POST
+
+PURPOSE: The POST method will create an assignment for students in the course
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/assignment will create Assignment for all students in specific course
+
+        SAMPLE REQUEST BODY:
+    {
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "766633",
+        "title": "Linear algebra 2",
+        "dueDate": "2016-05-22T16:00:00",
+        "weight": 0.2,
+        "totalMark": 80
+    }
+
+        SAMPLE RESPONSE BODY:
+    {
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "766633",
+        "title": "Linear algebra 2",
+        "dueDate": "2016-05-22T16:00:00",
+        "weight": 0.2,
+        "totalMark": 80
+    }
+
+
+
+ENDPOINT: /course/:courseid
+METHODS: GET
+PURPOSE: The GET method will return all assignment for a specific course
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+    GET
+        Issue GET to localhost:3001/api/assignment/course/6361a1f256e5a60610ef571c will return all assignment in that course
+
+        SAMPLE RESPONSE BODY:
+[
+    {
+        "title": "CSCC01A1",
+        "dueDate": "2016-05-19T01:00:00.000Z",
+        "weight": 0.1,
+        "totalMark": 100,
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "123456",
+        "id": "6361d070006ede8810801191"
+    }
+]
+
+
+
+ENDPOINT: /student/:studentid
+METHODS: GET
+PURPOSE: The GET method will return assignments for student in all courses
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+    GET
+        Issue GET to localhost:3001/api/assignment/student/6361a11256e5a60610ef5712
+
+        SAMPLE RESPONSE BODY:
+[
+    {
+        "title": "CSCC01A1",
+        "dueDate": "2016-05-19T01:00:00.000Z",
+        "weight": 0.1,
+        "totalMark": 100,
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "123456",
+        "id": "6361d070006ede8810801191"
+    },
+    {
+        "title": "Linear algebra 2",
+        "dueDate": "2016-05-22T20:00:00.000Z",
+        "weight": 0.2,
+        "totalMark": 80,
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "766633",
+        "id": "6361e4b79e9b2ff7f74d6ed0"
+    }
+]
+
+
+
+ENDPOINT: /:studentid/:courseid
+METHODS: GET
+PURPOSE: The GET method will return assignments for student in a specific course
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+    GET
+        Issue GET to localhost:3001/api/assignment/6361a11256e5a60610ef5712/6361a1f256e5a60610ef571c will return a student's all assignment in that course
+
+        SAMPLE RESPONSE BODY:
+[
+    {
+        "title": "CSCC01A1",
+        "dueDate": "2016-05-19T01:00:00.000Z",
+        "weight": 0.1,
+        "totalMark": 100,
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "123456",
+        "id": "6361d070006ede8810801191"
+    },
+    {
+        "title": "Linear algebra 2",
+        "dueDate": "2016-05-22T20:00:00.000Z",
+        "weight": 0.2,
+        "totalMark": 80,
+        "courseId": "6361a1f256e5a60610ef571c",
+        "courseFileId": "766633",
+        "id": "6361e4b79e9b2ff7f74d6ed0"
+    }
+]
+
+
+ENDPOINT: /delete/
+METHODS: POST
+PURPOSE: The POST method will detele an specific assignment in a course
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        201 - Will indicate the POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+    POST
+        Issue POST to localhost:3001/api/assignment/delete will delete the assignment in that course
+
+        SAMPLE REQUEST BODY:
+        {
+        "assignmentId":"6361e4b79e9b2ff7f74d6ed0"
+	    }
+
+        SAMPLE RESPONSE BODY:
+        "Delete Assignment Successful"
+
+
+
+ENDPOINT: /update/
+METHODS: POST
+PURPOSE: The POST method will update an specific assignment in a course
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        201 - Will indicate the POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+    POST
+        Issue POST to localhost:3001/api/assignment/ will update the details of the assignment in that course
+
+        You must have the correct assignmentId in the reponse body and AT LEAST ONE of the assignment detail that you wanted to update.
+
+        SAMPLE REQUEST BODY:
+        {
+        "assignmentId": "636496af56f3a0eed348152c",
+        "title": "A37A1",
+        "dueDate": "2016-11-02T16:00:00",
+        "weight": 80,
+        "totalMark": 100
+	    }
+
+        SAMPLE RESPONSE BODY: It returned the updated assignment details if sucessful
+        {
+        "assignmentId": "636496af56f3a0eed348152c",
+        "title": "A37A1",
+        "dueDate": "2016-11-02T16:00:00",
+        "weight": 80,
+        "totalMark": 100
+	    }

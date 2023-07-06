@@ -1,0 +1,8 @@
+Admin Manage Course Page components
+This doc outlines all the files for Admin Manage Course page
+
+=====================================================================
+
+File name: adminManageCoursePage.js
+Purpose: this file defines the administrator manage course page. It is used for
+         admin to enrol students and instructors to courses

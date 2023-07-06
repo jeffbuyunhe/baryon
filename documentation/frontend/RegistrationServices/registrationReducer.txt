@@ -1,0 +1,13 @@
+The RegistrationReducer contains all business logic for registration related operaiton
+
+=====================================================================
+
+uploadInviteStudentsCSV: upload a csv file for student registration
+
+uploadInviteFacultyCSV: upload a csv file for faculty registration
+
+uploadAddCoursesCSV: upload a csv file for adding courses
+
+uploadEnrollStudentsCSV: upload a csv to enroll students to courses
+
+uploadEnrollInstructorsCSV: upload a csv to enroll instructors to courses

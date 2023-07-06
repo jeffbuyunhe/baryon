@@ -1,0 +1,14 @@
+.home-page-title {
+    font-family: Oswald;
+    font-size: 4vw;
+    color: var(--dark-blue);
+    padding-left: 4%;
+}
+
+.home-page-title-line {
+    width: 80%;
+    height: 2px;
+    margin-left: 4%;
+    background-color: #9F9F9F;
+    margin-bottom: 3%
+}

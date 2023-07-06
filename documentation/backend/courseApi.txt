@@ -1,0 +1,282 @@
+Course API Documentation
+
+This doc outlines all the endpoints for course operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/courses
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all courses, the POST method will
+         create a course
+
+AUTHENTICATION: Must be admin for POST
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/courses will give all courses
+
+        RESPONSE BODY:
+	[
+    {
+        "name": "Databses++",
+        "courseCode": "115",
+        "organizationId": "634b291c85ef7081551471a5",
+        "students": [],
+        "instructors": [],
+        "id": "634b9a979bd4f89c49fbb847"
+    },
+    {
+        "name": "Database Organization",
+        "courseCode": "CSCC43",
+        "organizationId": "634b291c85ef7081551471a5",
+        "students": [],
+        "instructors": [],
+        "id": "634c2944b9b4e9a5ddc4ed54"
+    },
+    {
+        "name": "Advanced Netoworks",
+        "courseCode": "CSCD22",
+        "organizationId": "634b291c85ef7081551471a5",
+        "students": [],
+        "instructors": [],
+        "id": "634c298fb9b4e9a5ddc4ed5b"
+    }
+]
+
+    POST
+        Issue POST to localhost:3001/api/courses will create a course
+	  all fields are necessary
+        SAMPLE REQUEST BODY:
+		{
+    "name":"Database Organization",
+    "courseCode":"CSCC43",
+    "organizationId":"634b291c85ef7081551471a5"
+		}
+
+        SAMPLE RESPONSE BODY:
+		{
+    "name": "Database Organization",
+    "courseCode": "CSCC43",
+    "organizationId": "634b291c85ef7081551471a5",
+    "students": [],
+    "instructors": [],
+    "id": "634c2944b9b4e9a5ddc4ed54"
+	}
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET,PUT,DELETE
+
+PURPOSE: The GET method will return a course, the PUT method will
+         update a course's details, the DELETE method deletes a course
+
+         PUT can modify an coures name,couresCode, organizationId
+
+AUTHENTICATION: Must be admin for PUT, DELETE
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/courses/634c2944b9b4e9a5ddc4ed54 will the corresponding courses with same id
+
+        RESPONSE BODY:
+		{
+    "name": "Database Organization",
+    "courseCode": "CSCC43",
+    "organizationId": "634b291c85ef7081551471a5",
+    "students": [],
+    "instructors": [],
+    "id": "634c2944b9b4e9a5ddc4ed54"
+	}
+
+    PUT
+        Issue PUT to localhost:3001/api/courses/634c2944b9b4e9a5ddc4ed54 will update a course
+
+        all parameters are optional:
+		name, courseCode, organizationId.
+		update resulting in overlapping courseCodes within an organizationId, or invalid organizationId will return 400
+
+
+        SAMPLE REQUEST BODY:
+             {
+                "name":"Database Design",
+		    "courseCode": "CSCD43"
+            }
+
+        SAMPLE RESPONSE BODY:
+           {
+    "name": "Database Design",
+    "courseCode": "CSCD43",
+    "organizationId": "634b291c85ef7081551471a5",
+    "students": [],
+    "instructors": [],
+    "id": "634c2944b9b4e9a5ddc4ed54"
+	}
+
+    DELETE
+        Issue DELETE to localhost:3001/api/courses/634c2944b9b4e9a5ddc4ed54 will delete a course
+
+
+
+        Expect a 204 response code
+
+=====================================================================
+
+ENDPOINT: /organization/:id
+METHODS: GET
+
+PURPOSE: The GET method will return all courses with the organization id
+
+AUTHENTICATION: None
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/courses/organization/6asdiasdj1231312 will 
+        give all courses under the organization with id 6asdiasdj1231312
+
+=====================================================================
+
+ENDPOINT: /add_users/:id
+METHODS: PUT
+
+PURPOSE:  PUT can add students, tas, and instructors to the course
+
+
+AUTHENTICATION: Must be admin
+
+EXPECTED CODES:
+        200 - Will indicate the PUT is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+
+    PUT
+        Issue PUT to localhost:3001/api/courses/add_users/634c2944b9b4e9a5ddc4ed54 will update a course's student and instructors list
+
+        all parameters are optional:
+		students,instructors [lists of ids]
+		students  must be a list of User id's refering to a student
+		instructors must be a list of User id's refering to a instructor or students (in case of a ta)
+		they should all be in the same organization
+		if any of the above conditions are invalid that staff's id is not added to the course
+
+        SAMPLE REQUEST BODY:
+                       {
+                "students":["634b84bc8fdd5360fef8a222"],
+                "instructors":["634b84bc8fdd5360fef8a222"]
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+    "name": "Database Design",
+    "courseCode": "CSCD43",
+    "organizationId": "634b291c85ef7081551471a5",
+    "students": [
+        "634b84bc8fdd5360fef8a222"
+    ],
+    "instructors": [
+        "634b84bc8fdd5360fef8a222"
+    ],
+    "id": "634c2944b9b4e9a5ddc4ed54"
+}
+
+=====================================================================
+
+ENDPOINT: /remove_users/:id
+METHODS: PUT
+
+PURPOSE:
+         PUT can remove a courses instructors and or tas
+
+AUTHENTICATION: Must be admin
+
+EXPECTED CODES:
+        200 - Will indicate the PUT is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+
+    PUT
+        Issue PUT to localhost:3001/api/courses/remove_users/634c2944b9b4e9a5ddc4ed54 will update a course's student and instructors list
+
+        all parameters are optional:
+		students,instructors (same as before refer to add_users)
+
+
+        SAMPLE REQUEST BODY:
+            {
+                "students":["634b84bc8fdd5360fef8a222"],
+                "instructors":["634b84bc8fdd5360fef8a222"]
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+    "name": "Database Design",
+    "courseCode": "CSCD43",
+    "organizationId": "634b291c85ef7081551471a5",
+    "students": [],
+    "instructors": [],
+    "id": "634c2944b9b4e9a5ddc4ed54"
+}
+
+ENDPOINT: /add_label/:id
+METHODS: PUT
+
+PURPOSE:
+         PUT can add a course material label to the course
+
+AUTHENTICATION: Must be instructor
+
+EXPECTED CODES:
+        200 - Will indicate the PUT is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+
+    PUT
+        Issue PUT to localhost:3001/api/courses/add_label/634c2944b9b4e9a5ddc4ed54 will update a course's  labels list
+
+        all parameters are optional:
+		students,instructors (same as before refer to add_users)
+
+
+        SAMPLE REQUEST BODY:
+            {
+                label: "Lecture 1"
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+    "name": "Database Design",
+    "courseCode": "CSCD43",
+    "organizationId": "634b291c85ef7081551471a5",
+    "students": [],
+    "instructors": ["fojwofjoeofje2op0u9"],
+    "label": ["Lecture 1"],
+    "id": "634c2944b9b4e9a5ddc4ed54"
+}
+

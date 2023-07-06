@@ -1,0 +1,30 @@
+Reducers related to admin's operation
+
+=====================================================================
+
+The adminStudentsReducer manages the adminStudents store and contains all business
+logic relating to the students info on admin page.
+
+getStudentsByOrgId: gets all students by an organization id
+
+=====================================================================
+
+The adminInstructorsReducer manages the adminInstructors store and contains all business
+logic relating to the instructors info on admin page.
+
+getInstructorsByOrgId: gets all instructors by an organization id
+
+=====================================================================
+
+The adminCoursesReducer manages the adminCourses store and contains all business
+logic relating to the courses info on admin page.
+
+getCoursesByOrgId: gets all courses by an organization id
+
+=====================================================================
+
+The adminManageCourseReducer stores a course the admin is currently managing
+and it contains all business logic relating to managing that course.
+
+getCourseByCourseId: gets a course by course id
+

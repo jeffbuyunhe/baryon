@@ -1,0 +1,75 @@
+.course-navbar-layout {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    position: sticky;
+    margin-left: 1vw;
+    width:17vw;
+    height:100vh;
+    font-family: 'Outfit';
+    border-right: 1px solid #121E8B;
+}
+
+.course-name {
+    margin-top: 5%;
+    padding-bottom: 3%;
+    padding-left: 1vw;
+    max-width: 90%;
+    position: sticky;
+    border-bottom: 3px solid #091157;
+}
+
+#course-name-text {
+    font-size: 3vw;
+    font-family: oswald;
+    color: #091157;
+    transform: scaleY(1.5);
+}
+
+#general {
+    text-decoration: none;
+    font-size: 1vw;
+}
+
+.course-links h2{
+    position: relative;
+    font-weight: normal;
+    max-width: 80%;
+    padding-left: 1vw;
+    margin-left: -1vw;
+    background-color: #DDDEFF;
+    border-radius: 0.5vw;
+}
+
+.course-links > * {
+    top: 1vh;
+    left: 1vw;
+    max-width: 100%;
+    text-decoration: none;
+    font-size: 1vw;
+    position: relative;
+    color: #14229D;
+}
+
+
+.course-channels { 
+    max-width: 95%;
+    padding-top: 3vh;
+    position: relative;
+}
+
+#course-channel-header {
+    max-width: 100%;
+    border-bottom: 1px solid black;
+    font-size: 2vw;
+    position: relative;
+    padding-bottom: 0.5vh;
+    padding-left: 1vw;
+    transform: scaleY(1.5);
+    font-weight:normal;
+    color: #091157;
+}
+
+.course-nav-font {
+    font-size: 2vw;
+}

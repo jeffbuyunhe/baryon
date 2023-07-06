@@ -1,0 +1,354 @@
+Users API Documentation
+
+This doc outlines all the endpoints for user operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/users
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all users, the POST method will
+         create all users
+
+AUTHENTICATION: No authentication needed
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/users will give all users
+
+        RESPONSE BODY:
+            [
+                {
+                    id: 'sdai3loq4b32hli1l',
+                    email: 'testy@super_good_test_6.com',
+                    firstname: 'Testy',
+                    lastname: 'Supertest',
+                    organizationID: '879670dansda7a131fe'
+                },
+                {
+                    id: 'sdai3loq4b32das1l',
+                    email: 'testy@super_good_test_1.com',
+                    firstname: 'Testy',
+                    lastname: 'Supertest',
+                    organizationID: '879670dansda7a131fe'
+                }
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/users will create a user
+
+        SAMPLE REQUEST BODY:
+            {
+                email: 'testy@super_good_test_6.com',
+                password: 'supersecurypassword!',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe',
+                type: 'ADMIN'                          <-- OPTIONAL PARAM
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe'
+            }
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET, PUT, DELETE
+
+PURPOSE: The GET method will return a users, the PUT method will
+         update a user, the DELETE method deltes a user
+
+         PUT can only change first name and last name unless admin,
+         then you can modify organizationID
+
+AUTHENTICATION: PUT and DELETE need user to be authenticated/logged in
+               ( Requesting user is either admin for organization or
+                the user themself)
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/users/6asdiasdj1231312 will give all users
+
+        RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe'
+            },
+
+    PUT
+        Issue GET to localhost:3001/api/users/6asdiasdj1231312 will update a user
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                firstname: 'Testy2',
+                lastname: 'Supertest2',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy2',
+                lastname: 'Supertest2',
+                organizationID: '879670dansda7a131fe'
+            },
+
+    DELETE
+        Issue DELETE to localhost:3001/api/users/6asdiasdj1231312 will delete a user
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        Expect a 204 response code
+
+=====================================================================
+
+ENDPOINT: /login
+METHODS: POST
+
+PURPOSE: The POST method logs a user in and returns a JWT token for authentication
+
+AUTHENTICATION: None needed
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid credentials)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/login will log user in
+
+        SAMPLE REQUEST BODY:
+            {
+                email: 'saad.makrod@gmail.com',
+                password: 'password123!',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'saad.makrod@gmail.com',
+                name: 'Saad Makrod',
+                isAdmin: false,
+                token: 'u21hu9732prjqnewunrp923h[012n34uph239p4j21oi3j4289rh*&@!)(#12ui'
+                timestamp: Date.now()
+            },
+
+=====================================================================
+
+ENDPOINT: /password-reset
+METHOD: POST
+
+PURPOSE: The POST method returns a token for the user to reset their email with
+
+AUTHENTICATION: None needed
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid email)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/password-reset
+
+        SAMPLE REQUEST BODY:
+            {
+                email: 'saad.makrod@gmail.com',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                token: 'udasda21hu9732prjqnedqewq123231412wunrp923h[012n34uph239p4j21oi3j4289rh*&@!)(#12ui'
+            },
+
+=====================================================================
+
+ENDPOINT: /password-reset-confirm
+METHOD: POST
+
+PURPOSE: The POST method resets a user's password
+
+AUTHENTICATION: None needed
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid email)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/password-reset-confirm
+
+        SAMPLE REQUEST BODY:
+            {
+                id: '34j23h5p34n1jkasdasd'
+                password: 'new password :)',
+                token: 'udasda21hu9732prjqnedqewq123231412wunrp923h[012n34uph239p4j21oi3j4289rh*&@!)(#12ui'
+            }
+
+        SAMPLE RESPONSE:
+            Will have status 200
+
+=====================================================================
+
+ENDPOINT: /:id/email-reset
+METHOD: POST
+
+PURPOSE: The POST method resets a user's email
+
+AUTHENTICATION: User must be logged in
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid email)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/email-reset/34j23h5p34n1jkasdasd
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                email: 'saad.makrod@mail.utoronto.ca',
+            }
+
+        SAMPLE RESPONSE:
+            {
+                id: '6asdiasdj1231312',
+                email: 'saad.makrod@mail.utoronto.ca',
+                firstname: 'Testy2',
+                lastname: 'Supertest2',
+                organizationID: '879670dansda7a131fe'
+            },
+
+=====================================================================
+
+ENDPOINT: /:id/activate
+METHOD: POST
+
+PURPOSE: The POST method activates a user's account
+
+AUTHENTICATION: None needed
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid token)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/34j23h5p34n1jkasdasd/activate
+
+        SAMPLE REQUEST BODY:
+            {
+                token: 'asdn1g78o412bjekbwqpep329pu4oh32174p',
+            }
+
+        SAMPLE RESPONSE:
+            {
+                id: '6asdiasdj1231312',
+                email: 'saad.makrod@mail.utoronto.ca',
+                firstname: 'Testy2',
+                lastname: 'Supertest2',
+                organizationID: '879670dansda7a131fe'
+            },
+
+=====================================================================
+
+ENDPOINT: /user/me
+METHOD: POST
+
+PURPOSE: The POST method returns the logged in user
+
+AUTHENTICATION: User must be logged in
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid token)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/user/me
+
+        SAMPLE REQUEST HEADER:
+            {
+                token: 'asdn1g78o412bjekbwqpep329pu4oh32174p',
+            }
+
+        SAMPLE RESPONSE:
+            {
+                id: '6asdiasdj1231312',
+                email: 'saad.makrod@mail.utoronto.ca',
+                firstname: 'Testy2',
+                lastname: 'Supertest2',
+                organizationID: '879670dansda7a131fe'
+            },
+
+=====================================================================
+
+ENDPOINT: /is-verified
+METHOD: POST
+
+PURPOSE: The POST method returns whether the user account is verified
+
+AUTHENTICATION: None needed
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid token)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/users/is-verified
+
+        SAMPLE REQUEST BODY:
+            {
+                email: 'saad.makrod@mail.utoronto.ca',
+            }
+
+        SAMPLE RESPONSE:
+            {
+                verified: true
+            },
+
+=====================================================================

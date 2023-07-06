@@ -1,0 +1,16 @@
+The UserReducer manages the user store and contains all business logic for user 
+related operaiton
+
+=====================================================================
+
+setUser: sets user in redux store
+
+createUser: creates an user
+
+login: logs in an user
+
+verified: check is a user is verified
+
+activate: activates an user
+
+getUserAndOrganization: gets user and their organization 

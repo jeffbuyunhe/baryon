@@ -1,0 +1,7 @@
+The AssignmentService contains all endpoint calls to the assignment api
+
+=====================================================================
+
+createAssignment: creates an assignment
+
+getAllByCourseId: gets all assignment by a course id

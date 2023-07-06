@@ -1,0 +1,5 @@
+The InstructorService contains all endpoint calls to the instructor api
+
+=====================================================================
+
+retrieveAllByOrgId: retrieve all instructors by organization id

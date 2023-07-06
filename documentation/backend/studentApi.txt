@@ -1,0 +1,295 @@
+Students API Documentation
+
+This doc outlines all the endpoints for student operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/students
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all students, the POST method will
+         create an student
+
+AUTHENTICATION: POST needs admin authentication
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/students will give all students
+
+        RESPONSE BODY:
+            [
+                {
+                    id: 'sdai3loq4b32hli1l',
+                    email: 'testy@super_good_test_6.com',
+                    firstname: 'Testy',
+                    lastname: 'Supertest',
+                    organizationID: '879670dansda7a131fe',
+                    courses: [],
+                    taCourse: []
+                },
+                {
+                    id: 'sdai3loq4b32das1l',
+                    email: 'testy@super_good_test_1.com',
+                    firstname: 'Testy',
+                    lastname: 'Supertest',
+                    organizationID: '879670dansda7a131fe'
+                    courses: [],
+                    taCourse: []
+                }
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/students will create a student
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                id: 'sdai3loq4b3asd2das1l'
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: 'sdai3loq4b32das1l',
+                email: 'testy@super_good_test_1.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe'
+                courses: [],
+                taCourse: []
+            }
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET, DELETE
+
+PURPOSE: The GET method will return a student, the DELETE method deletes a student
+
+AUTHENTICATION: DELETE needs student to be authenticated/logged in
+               (Requesting student is either admin for organization or
+                the student themself)
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/students/6asdiasdj1231312 will give all students
+
+        RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe',
+                course: []
+                taCourse: []
+            },
+
+    DELETE
+        Issue DELETE to localhost:3001/api/students/6asdiasdj1231312 will delete a student
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        Expect a 204 response code
+
+=====================================================================
+
+ENDPOINT: /organization/:id
+METHODS: GET
+
+PURPOSE: The GET method will return all students with the organization id
+
+AUTHENTICATION: None
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/students/organization/6asdiasdj1231312 will 
+        give all students under the organization with id 6asdiasdj1231312
+
+=====================================================================
+
+ENDPOINT: /:id/add-course
+METHODS: PUT
+
+PURPOSE: The PUT method adds a course to a student
+
+AUTHENTICATION: User must be admin
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid credentials)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/students/add-course will add course
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                course: 'jdhqe7r81h2k3h1p9',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe',
+                course: [
+                    'jdhqe7r81h2k3h1p9
+                ],
+                taCourse: []
+            },
+
+=====================================================================
+
+ENDPOINT: /:id/remove-course
+METHOD: PUT
+
+PURPOSE: The PUT method removes a course from the student
+
+AUTHENTICATION: User must be admin
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid email)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/students/remove-course
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                course: 'jdhqe7r81h2k3h1p9',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe',
+                course: [],
+                taCourse: []
+            },
+
+=====================================================================
+
+ENDPOINT: /:id/add-ta-course
+METHODS: PUT
+
+PURPOSE: The PUT method adds a ta course to a student
+
+AUTHENTICATION: User must be admin
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid credentials)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/students/add-course will add course
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                course: 'jdhqe7r81h2k3h1p9',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe',
+                course: [],
+                taCourse: [
+                    'jdhqe7r81h2k3h1p9'
+                ]
+            },
+
+=====================================================================
+
+ENDPOINT: /:id/remove-ta-course
+METHOD: PUT
+
+PURPOSE: The PUT method removes a ta course from the student
+
+AUTHENTICATION: User must be admin
+
+EXPECTED CODES:
+        200 - Will indicate the POST is successful
+        400 - Something is wrong with your request (could be invalid email)
+        500 - Server error
+
+EXAMPLES:
+    POST:
+        Issue POST to localhost:3001/api/students/remove-ta-course
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                course: 'jdhqe7r81h2k3h1p9',
+            }
+
+        SAMPLE RESPONSE BODY:
+            {
+                id: '6asdiasdj1231312',
+                email: 'testy@super_good_test_6.com',
+                firstname: 'Testy',
+                lastname: 'Supertest',
+                organizationID: '879670dansda7a131fe',
+                course: [],
+                taCourse: []
+            },
+
+=====================================================================

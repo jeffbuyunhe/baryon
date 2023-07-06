@@ -1,0 +1,8 @@
+Admin Upload Page components
+This doc outlines all the files for Admin Upload Page 
+
+=====================================================================
+
+File name: AdminUploadPage.js
+Purpose: this file defines the administrator upload page. It is used by admin to
+         upload csv files in order to create courses, students, and admin

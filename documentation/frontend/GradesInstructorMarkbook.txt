@@ -1,0 +1,13 @@
+Grades Components
+
+=====================================================================
+
+File name: GradesAssignment.js
+Purpose: This page routes from GradesInstructor after user selects an
+assignment to mark. Displays students to mark, with sidebars for 
+navigation
+
+File: TableStudents.js
+Purpose: Organizes student data to be put in GradesAssignment.js
+
+

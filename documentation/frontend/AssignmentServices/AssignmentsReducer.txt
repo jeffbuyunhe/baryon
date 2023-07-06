@@ -1,0 +1,10 @@
+The AssignmentsReducer manages the assignments store and contains all business 
+logic for assignments related operaiton
+
+=====================================================================
+
+createAssignment: creates an assignment
+
+submitAssignmrnt: submits an assignment
+
+getAssignmentsByCourseIdForStudents: get all assignments in a course for student

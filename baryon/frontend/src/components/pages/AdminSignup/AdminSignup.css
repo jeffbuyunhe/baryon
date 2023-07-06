@@ -1,0 +1,109 @@
+.body-background {
+  background-attachment: fixed; 
+  background-image: url(../../../images/adminSignupBackground.png);
+  background-size: cover;
+}
+
+.admin-signup-button {
+  background-color: #3b3f87;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  cursor: pointer;
+  font-family: Outfit;
+  font-weight: bold;
+  font-size: 2vw;
+  height: 4.2vw;
+  margin-top: 2%;
+  width: 100%;
+}
+
+.admin-signup-button:hover {
+  background-color: #232551;
+}
+
+.admin-signup-button:active {
+  background-color: #3b3f87;
+}
+
+.admin-signup-form {
+  height: auto;
+  width: 50vw;
+  padding: 2%;
+  background: #a4a6ce;
+  margin: auto;
+  margin-bottom: 5%;
+  border-radius: 15px;
+}
+
+.admin-signup-input{
+  border-color: #3b3f87;
+  width: 48vw;
+  border-radius: 10px;
+  font-size: 1.5vw;
+  font-family: Outfit;
+  padding: 2%;
+  margin: 2% 0%;
+}
+
+.admin-signup-input:invalid[focused=true]{
+  border-color: rgb(149, 0, 0);
+}
+
+.admin-signup-input:invalid[focused=true] ~span{
+  display: block;
+}
+
+.admin-signup-label {
+  font-size: 1.8vw;
+  color: #1b1d3d;
+}
+
+.admin-signup-span{
+  color: rgb(149, 0, 0);
+  font-size: 1vw;
+  display: none
+}
+
+.form-input{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.header{
+  font-size: 4vw;
+  line-height: 1vw;
+  text-align: center;
+  color: #3b3f87;
+  margin: 7% 0% 3%;
+}
+
+.subheader{
+  font-size: 2vw;
+  text-align: center;
+  color: #828282;
+}
+
+.body-text-style{
+  font-size: 2vw;
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 5%;
+  line-height: 6vw;
+}
+
+.footer{
+  font-size: 1vw;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
+}
+
+.icon {
+  font-size: 150%;
+  padding-right: 2vh;
+  color: #3b3f87;
+}

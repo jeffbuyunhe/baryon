@@ -1,0 +1,15 @@
+Grades Components
+
+=====================================================================
+
+File name: Grades.js
+Purpose: This page routes to the student view or the instructor view 
+depending on who the user is
+
+File: GradesStudent.js
+Purpose: Display the student grades data organized into a table 
+
+File: GradesInstructor.js
+Purpose: Display assignment data organized into a table
+
+

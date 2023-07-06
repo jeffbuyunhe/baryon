@@ -1,0 +1,185 @@
+Registration API Documentation
+
+This doc outlines all the endpoints for registration operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/register
+
+=====================================================================
+
+ENDPOINT: /students
+METHODS: POST
+
+PURPOSE: To register students to an organization, returns the number of rows processed
+
+AUTHENTICATION: POST needs admin authentication
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/register/students
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                file: CSV_FILE
+            }
+
+            CSV FORMAT: firstname,lastname,email
+
+        SAMPLE RESPONSE BODY:
+            {
+                created: 12
+            }
+
+=====================================================================
+
+ENDPOINT: /instructors
+METHODS: POST
+
+PURPOSE: To register instructors to an organization, returns the number of rows processed
+
+AUTHENTICATION: POST needs admin authentication
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/register/instructors
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                file: CSV_FILE
+            }
+
+            CSV FORMAT: firstname,lastname,email
+
+        SAMPLE RESPONSE BODY:
+            {
+                created: 12
+            }
+
+=====================================================================
+
+ENDPOINT: /courses
+METHODS: POST
+
+PURPOSE: To register courses to an organization, returns the number of rows processed
+
+AUTHENTICATION: POST needs admin authentication
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/register/courses
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                file: CSV_FILE
+            }
+
+            CSV FORMAT: name,courseCode
+
+        SAMPLE RESPONSE BODY:
+            {
+                created: 12
+            }
+
+=====================================================================
+
+ENDPOINT: /course-students/:id
+METHODS: POST
+
+PURPOSE: To register students to a couurse, returns the number of rows processed
+        id is the course id
+
+AUTHENTICATION: POST needs admin authentication
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/course-students/bho781u1o23gbdoqw7
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                file: CSV_FILE
+            }
+
+            CSV FORMAT: email
+
+        SAMPLE RESPONSE BODY:
+            {
+                registered: 12
+            }
+
+=====================================================================
+
+ENDPOINT: /course-instructors/:id
+METHODS: POST
+
+PURPOSE: To register instructors to a couurse, returns the number of rows processed
+        id is the course id
+
+AUTHENTICATION: POST needs admin authentication
+
+EXPECTED CODES:
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    POST
+        Issue POST to localhost:3001/api/course-instructors/bho781u1o23gbdoqw7
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        SAMPLE REQUEST BODY:
+            {
+                file: CSV_FILE
+            }
+
+            CSV FORMAT: email
+
+        SAMPLE RESPONSE BODY:
+            {
+                registered: 12
+            }
+
+=====================================================================

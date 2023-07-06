@@ -1,0 +1,139 @@
+Course Materials API Documentation
+
+This doc outlines all the endpoints for course materials operations.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINT: /api/materials
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all courses, the POST method will
+         create a course
+
+
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/materials will give all materials
+
+        RESPONSE BODY:
+	[
+    {
+        "label": "good",
+        "title": "An Assignment",
+        "courseFileId": "6372c5db9172e2c3ec69134e",
+        "courseId": "13647785d6fb4fb14f69e8c5",
+        "id": "6372c6239172e2c3ec69135a"
+    }
+]
+
+    POST
+        Issue POST to localhost:3001/api/materials will create a material
+	  all fields are necessary
+        SAMPLE REQUEST BODY:
+		{
+    "courseId":"13647785d6fb4fb14f69e8c5",
+    "title":"An Assignment",
+    "courseFileId":"6372c5db9172e2c3ec69134e",
+    "label":"good"
+}
+
+        SAMPLE RESPONSE BODY:
+{
+    "label": "good",
+    "title": "An Assignment",
+    "courseFileId": "6372c5db9172e2c3ec69134e",
+    "courseId": "13647785d6fb4fb14f69e8c5",
+    "id": "6372c6239172e2c3ec69135a"
+}
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET,PUT,DELETE
+
+PURPOSE: The GET method will return a material, the PUT method will
+         update a materials's details, the DELETE method deletes a material
+
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/materials/6372c6239172e2c3ec69135a 
+
+        RESPONSE BODY:
+		{
+    "label": "good",
+    "title": "An Assignment",
+    "courseFileId": "6372c5db9172e2c3ec69134e",
+    "courseId": "13647785d6fb4fb14f69e8c5",
+    "id": "6372c6239172e2c3ec69135a"
+}
+
+    PUT
+        Issue PUT to localhost:3001/api/materials/6372c6239172e2c3ec69135a will update a material details
+
+        all parameters are optional:
+		label,title,courseId,courseFileId
+
+
+        SAMPLE REQUEST BODY:
+            {
+
+    "title":"A very good title"
+
+        }
+
+        SAMPLE RESPONSE BODY:
+           {
+    "label": "good",
+    "title": "A very good title",
+    "courseFileId": "6372c5db9172e2c3ec69134e",
+    "courseId": "13647785d6fb4fb14f69e8c5",
+    "id": "6372c6239172e2c3ec69135a"
+        }
+
+    DELETE
+        Issue DELETE to localhost:3001/api/materials/6372c6239172e2c3ec69135a will delete a material
+        Expect a 204 response code
+
+
+ENDPOINT: /get_by_courseid/:courseId
+METHODS: GET
+
+PURPOSE: The GET method will return all material for a course given by id
+
+AUTHENTICATION: Must be instructor/student 
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/materials/get_by_courseid/6372c6239172e2c3ec69135a 
+
+        RESPONSE BODY:
+		[{
+            "label": "Lecture 1",
+            "title": "Syllabus.pdf",
+            "courseFileId": "6372c5db9172e2c3ec69134e",
+            "courseId": "13647785d6fb4fb14f69e8c5",
+            "id": "6372c6239172e2c3ec69135a"
+        }]

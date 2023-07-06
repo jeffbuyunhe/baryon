@@ -1,0 +1,44 @@
+.gallery-layout{
+    display: grid;
+    grid-template-columns: 45vh 45vh 45vh;
+    margin: 2%;
+}
+
+.add-video-container{
+    padding-left: 2%;
+}
+
+.video-input{
+    font-size: 2.5vh;
+    font-family: Outfit;
+    margin-right: 1%;
+    border-color: #6d71c6;
+    border-radius: 5px;
+}
+
+.video-input-long{
+    font-size: 2.5vh;
+    font-family: Outfit;
+    margin-right: 1%;
+    border-color: #6d71c6;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.video-submit{
+    font-size: 2.5vh;
+    font-family: Outfit;
+    background-color: white;
+    border-color: #3b3f87;
+    color: #3b3f87;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.video-submit:hover{
+    background-color: rgb(235, 243, 255);
+}
+
+.video-submit:active{
+    background-color: #b8badf;
+}

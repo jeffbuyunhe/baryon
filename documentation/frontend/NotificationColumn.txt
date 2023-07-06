@@ -1,0 +1,13 @@
+Home Page components
+This doc outlines all the files for Notification column
+
+=====================================================================
+
+File Name: NotificationList.js
+Purpose: The purpose of this file is to act as an container that 
+        includes everything that is related to Notification
+
+File Name: NotificationListItem.js
+Purpose: This is the individual notification message that gets displayed
+        for each notification that the user has, it has an if statement 
+        checking which format it should be using

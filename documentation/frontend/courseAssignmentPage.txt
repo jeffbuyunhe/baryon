@@ -1,0 +1,29 @@
+course assignment page components
+This doc outlines all the files for Course Assignment
+
+==========================================================================================================================================
+
+File name: CourseAssignmentList.js
+Purpose: This page is a container for all the course Assignments components
+
+This page is one component and consists an array of all the course assignments
+
+These link to future pages not yet created.
+
+=====================================================================
+
+File name: CourseAssignmentListItem.js
+Purpose: This page is a container for the individual course Assignment component
+
+This page is one component and consists of a Title, a due date, a weight and a link to the assignment handout,
+it also has a button to submit that doesnt work yet
+
+These link to future pages not yet created.
+
+=====================================================================
+
+File name: AssignmentPage.js
+Purpose: This page is a container for everything on the page, it contains AssignmentList, a Navbar, 
+and will contain a course Navbar once it has been finished by another group member
+
+These link to future pages not yet created.

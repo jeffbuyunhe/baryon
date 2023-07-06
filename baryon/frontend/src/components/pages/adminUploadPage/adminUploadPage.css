@@ -1,0 +1,119 @@
+.admin-upload-page-layout {
+    display: grid;
+    grid-template-columns: 5% 95%;
+    grid-template-rows: 30%, 70%;
+}
+.admin-upload-title {
+    font-family: Oswald;
+    font-size: 3.8vw;
+    color: var(--dark-blue);
+    padding-top: 2%;
+    padding-left: 4%;
+}
+.admin-upload-title-line {
+    width: 90%;
+    height: 1px;
+    margin-left: 4%;
+    background-color: #9F9F9F;
+    margin-bottom: 0%
+}
+.admin-upload-button {
+    font-size: 2vw;
+    font-family: Outfit;
+    color: var(--dark-blue);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 25%;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    background-color: #C3DEF8;
+    border: 2px solid #C3DEF8;
+    border-radius: 7px;
+}
+.admin-upload-button-2 {
+    display: inline-block;
+    font-size: 2vw;
+    font-family: Outfit;
+    color: var(--dark-blue);
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    width: 28%;
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: white;
+    border: 3px solid #091157;
+    border-radius: 7px;
+}
+.admin-upload-card {
+    font-size: 1.5vw;
+    color: var(--dark-blue);
+    width: 60%;
+    height: auto;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    background-color: #C3DEF8;
+    border: 2px solid #C3DEF8;
+    border-radius: 7px;
+}
+.admin-upload-text {
+    font-size: 1.7vw;
+    color: var(--dark-blue);
+    margin-top:20%;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+.admin-large {
+    font-size: 2.3vw;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+.admin-medium {
+    font-size: 1.8vw;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: #464646;
+}
+.admin-small {
+    font-size: 1.5vw;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+.admin-icon {
+    margin-left: 70%;
+}
+.admin-upload-list {
+    font-size: 1.8vw;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    margin-left: 5%
+}
+.admin-upload-refresh-button {
+    font-size: 1vw;
+    font-family: Outfit;
+    color: var(--dark-blue);
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    width: 5%;
+    margin-top: 1%;
+    margin-bottom: 0%;
+    margin-left: 88%;
+    background-color: #C3DEF8;
+    border: 2px solid #C3DEF8;
+    border-radius: 7px;
+}
+
+td[color_code='1'] {
+    color: #C20000
+}
+
+td[color_code='2'] {
+    color: #008325
+}

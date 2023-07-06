@@ -1,0 +1,437 @@
+Comments API Documentation
+
+This doc outlines all the endpoints for commenting on posts.
+NOTE: that all endpoints expect and return data in the JSON format.
+
+BASE ENDPOINTS: /api/answers <-- answers to posts
+        /api/comments <-- comments for posts
+        /api/replies <-- replies to comments for posts
+
+
+****************************** ANSWERS ******************************
+
+=====================================================================
+
+ENDPOINT: /:courseid/posts/:postid
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all comment for the course with that post id and POST will
+    create a comment
+
+AUTHENTICATION: User must be logged in and a member of course
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/answers/123/posts/456 will give all comments
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            [
+                {
+                    answer: 'hey',
+                    userId: '230144hjpd9qhp',
+                    isStudent: true,
+                    postId: '456',
+                    createdAt: DATE,
+                    updatedAt: DATE,
+                    id: '222'
+                },
+                {
+                    answer: 'hey',
+                    userId: '2301123144hjpd9qhp',
+                    isStudent: false,
+                    postId: '456',
+                    createdAt: DATE,
+                    updatedAt: DATE,
+                    id: '111'
+                },
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/answers/123/posts/456 will create comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        REQUEST BODY:
+            {
+                answer: 'hi
+            }
+
+        RESPONSE BODY:
+            {
+                answer: 'hi',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111'
+            },
+
+=====================================================================
+
+ENDPOINT: /:courseid/posts/:postid/:id
+METHODS: PUT, DELETE, GET
+
+PURPOSE: The GET method will return a comment for the course with that post id, PUT will
+    update a comment, DELETE deletes comment
+
+AUTHENTICATION: User must be logged in and a member of course
+
+EXPECTED CODES:
+        200 - Will indicate the GET/PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/answers/123/posts/456/111 will give comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            {
+                answer: 'hey',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111'
+            }
+
+    PUT
+        Issue POST to localhost:3001/api/answers/123/posts/456/111 will update comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        REQUEST BODY:
+            {
+                comment: 'hi
+            }
+
+        RESPONSE BODY:
+            {
+                answer: 'hi',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111'
+            }
+
+    DELETE
+        Issue POST to localhost:3001/api/answers/123/posts/456/111 will delete comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+****************************** COMMENTS ******************************
+
+=====================================================================
+
+ENDPOINT: /:courseid/posts/:postid
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all comment for the course with that post id and POST will
+    create a comment
+
+AUTHENTICATION: User must be logged in and a member of course
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/comments/123/posts/456 will give all comments
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            [
+                {
+                    answer: 'hey',
+                    userId: '230144hjpd9qhp',
+                    isStudent: true,
+                    postId: '456',
+                    createdAt: DATE,
+                    updatedAt: DATE,
+                    id: '222',
+                    replies: []
+                },
+                {
+                    answer: 'hey',
+                    userId: '2301123144hjpd9qhp',
+                    isStudent: false,
+                    postId: '456',
+                    createdAt: DATE,
+                    updatedAt: DATE,
+                    id: '111',
+                    replies: []
+                },
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/comments/123/posts/456 will create comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        REQUEST BODY:
+            {
+                answer: 'hi
+            }
+
+        RESPONSE BODY:
+            {
+                answer: 'hi',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111',
+                replies: []
+            },
+
+=====================================================================
+
+ENDPOINT: /:courseid/posts/:postid/:id
+METHODS: PUT, DELETE, GET
+
+PURPOSE: The GET method will return a comment for the course with that post id, PUT will
+    update a comment, DELETE deletes comment
+
+AUTHENTICATION: User must be logged in and a member of course
+
+EXPECTED CODES:
+        200 - Will indicate the GET/PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/comments/123/posts/456/111 will give comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            {
+                answer: 'hey',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111',
+                replies: []
+            }
+
+    PUT
+        Issue POST to localhost:3001/api/comments/123/posts/456/111 will update comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        REQUEST BODY:
+            {
+                answer: 'hi
+            }
+
+        RESPONSE BODY:
+            {
+                answer: 'hi',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111',
+                replies: []
+            }
+
+    DELETE
+        Issue POST to localhost:3001/api/comments/123/posts/456/111 will delete comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+****************************** REPLIES ******************************
+
+=====================================================================
+
+ENDPOINT: /:courseid/comments/:commentid
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all comment for the course with that comment id and POST will
+    create a comment
+
+AUTHENTICATION: User must be logged in and a member of course
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/replies/123/comments/456 will give all comments
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            [
+                {
+                    reply: 'hey',
+                    userId: '230144hjpd9qhp',
+                    isStudent: true,
+                    postId: '456',
+                    createdAt: DATE,
+                    updatedAt: DATE,
+                    id: '222',
+                },
+                {
+                    reply: 'hey',
+                    userId: '2301123144hjpd9qhp',
+                    isStudent: false,
+                    postId: '456',
+                    createdAt: DATE,
+                    updatedAt: DATE,
+                    id: '111',
+                },
+            ]
+
+    POST
+        Issue POST to localhost:3001/api/replies/123/comments/456 will create comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        REQUEST BODY:
+            {
+                reply: 'hi
+            }
+
+        RESPONSE BODY:
+            {
+                reply: 'hi',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111',
+            },
+
+=====================================================================
+
+ENDPOINT: /:courseid/comments/:postid/:id
+METHODS: PUT, DELETE, GET
+
+PURPOSE: The GET method will return a comment for the course with that post id, PUT will
+    update a comment, DELETE deletes comment
+
+AUTHENTICATION: User must be logged in and a member of course
+
+EXPECTED CODES:
+        200 - Will indicate the GET/PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:3001/api/replies/123/comments/456/111 will give comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        RESPONSE BODY:
+            {
+                reply: 'hey',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111',
+            }
+
+    PUT
+        Issue POST to localhost:3001/api/replies/123/comments/456/111 will update comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }
+
+        REQUEST BODY:
+            {
+                reply: 'hi
+            }
+
+        RESPONSE BODY:
+            {
+                reply: 'hi',
+                userId: '230144hjpd9qhp',
+                isStudent: true,
+                postId: '456',
+                createdAt: DATE,
+                updatedAt: DATE,
+                id: '111',
+            }
+
+    DELETE
+        Issue POST to localhost:3001/api/replies/123/comments/456/111 will delete comment
+
+        SAMPLE HEADER:
+            {
+                Authorization: 'bearer AJDKAH8RQNRhdaspduihbBYOilbyOYPG8GL234'
+            }

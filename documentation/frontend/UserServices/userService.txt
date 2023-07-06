@@ -1,0 +1,13 @@
+The UserService contains all endpoint calls to the user api
+
+=====================================================================
+
+create: creates an user
+
+login: logs in an user
+
+userVerified: check if an user is userVerified
+
+activateUser: avtivates an user
+
+getLoggedInUser: gets a logged in user

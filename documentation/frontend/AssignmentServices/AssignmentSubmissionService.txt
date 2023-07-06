@@ -1,0 +1,7 @@
+The AssignmentSubmissionService contains all endpoint calls to the assignment submission api
+
+=====================================================================
+
+createSubmission: creates a submission
+
+getSubmissionByAssignmentStudentId: gets submission to an assignment for a student

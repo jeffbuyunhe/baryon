@@ -1,0 +1,17 @@
+.management-card {
+    margin: 10%;
+    width: 90%;
+    aspect-ratio: 1/0.92;
+    border-radius: 7px;
+    border: 2px solid var(--dark-blue);
+    text-align: center;
+    font-size: 1.5vw;
+    color: #244BD6;
+}
+.management-card-icon {
+    margin: 30% 35% 5% 35%;
+    max-height: 5vw;
+    min-height: 3vw;
+    max-width: 5vw;
+    min-width: 3vw;
+}

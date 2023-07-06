@@ -1,0 +1,242 @@
+CourseFile API Documentation
+
+This doc outlines all the endpoints for file operations.
+NOTE: that all endpoints expect and return data in the JSON format(GET , POST),a boolean value(DELETE), or actual file(GET download).
+
+BASE ENDPOINT: /api/files/
+
+=====================================================================
+
+ENDPOINT: /
+METHODS: GET, POST
+
+PURPOSE: The GET method will return all files, the POST method will
+         upload a file
+
+AUTHENTICATION: Must be admin for POST
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:8080/api/files will give all files
+
+        RESPONSE BODY:
+	[
+    {
+        "filename": "Screen Shot 2022-02-03 at 10.12.36 AM.png",
+        "size": 56637,
+        "contentType": "image/png",
+        "uploadDate": "2022-11-03T14:09:01.928Z",
+        "uploaderId": "6363a107b1c3b2038bc6bc61",
+        "courseId": "63639f47943a7466498e2ecc",
+        "id": "6363cb7d1ff878e8d0d16d02"
+    },
+    {
+        "filename": "IMG_1523.JPG",
+        "size": 6281046,
+        "contentType": "image/jpeg",
+        "uploadDate": "2022-11-03T17:23:28.212Z",
+        "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+        "courseId": "6363cd508425e03859366dcc",
+        "id": "6363f9108ee3fc54ec67bd39"
+    },
+    {
+        "filename": "Screen Shot 2022-02-03 at 10.12.36 AM.png",
+        "size": 56637,
+        "contentType": "image/png",
+        "uploadDate": "2022-11-03T17:31:17.304Z",
+        "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+        "courseId": "6363cd508425e03859366dce",
+        "id": "6363fae58ee3fc54ec67bd5a"
+    },
+    {
+        "filename": "IMG_1533.JPG",
+        "size": 5883615,
+        "contentType": "image/jpeg",
+        "uploadDate": "2022-11-03T17:36:11.050Z",
+        "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+        "courseId": "6363cd508425e03859366dcc",
+        "id": "6363fc0a8ee3fc54ec67bd62"
+    },
+    {
+        "filename": "TUT1wk4.png",
+        "size": 335189,
+        "contentType": "image/png",
+        "uploadDate": "2022-11-03T17:39:00.024Z",
+        "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+        "courseId": "6363cd508425e03859366dce",
+        "id": "6363fcb48ee3fc54ec67bd88"
+    }
+] , 200 STATUS
+
+    POST
+        Issue POST to localhost:8080/api/files will create a course file
+        IMPORTANT:
+        The header must have two fields:
+        {
+            courseId: The courseId of an existing course,
+            uploaderId: The userId of an existing user
+            
+        }
+        Messing up the header will give you a 400 error code
+        
+        The body must be:
+        multipart/form-data
+        with ONLY one field,
+        file = A SINGLE FILE BEING UPLOADED
+        Messing this up will crash the middleware of multer and result in a 500 Status code
+    
+    to the person reading this, if you are working on a frontend form input here is some code to base it off:
+    https://pastebin.com/tiee3BH7
+    
+    EXAMPLE:
+    
+        SAMPLE REQUEST BODY:
+        multipart/form-data
+        key             value
+        ---------       ---------
+        file            a single PDF file called a_resume.pdf
+        SAMPLE HEADER BODY:
+        {
+            courseId:'6363cd508425e03859366dcc',
+            uploaderId:'6363f8e1b1c3b2038bc6bc62'
+        }
+        SAMPLE RESPONSE BODY:
+{
+    "filename": "a_resume.pdf",
+    "size": 84320,
+    "contentType": "application/pdf",
+    "uploadDate": "2022-11-03T17:37:34.493Z",
+    "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+    "courseId": "6363cd508425e03859366dcc",
+    "id": "6363fc5e8ee3fc54ec67bd7f"
+}
+    201 STATUS
+
+
+ENDPOINT: /bulk
+METHODS: POST
+
+PURPOSE: 
+
+AUTHENTICATION: Must be admin for POST
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        201 - Will indicate POST is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+
+    POST
+        Issue POST to localhost:8080/api/files will create multiple files for a course
+        IMPORTANT:
+        The header must have two fields:
+        {
+            courseId: The courseId of an existing course,
+            uploaderId: The userId of an existing user
+            
+        }
+        Messing up the header will give you a 400 error code
+        
+        The body must be:
+        multipart/form-data
+        with ONLY one field,
+        file
+        Messing this up will crash the middleware of multer and result in a 500 Status code
+    
+    to the person reading this, if you are working on a frontend form input here is some code to base it off:
+    https://pastebin.com/tiee3BH7
+    
+    EXAMPLE:
+    
+        SAMPLE REQUEST BODY:
+        multipart/form-data
+        key             values
+        ---------       ---------
+        file            a_resume.pdf, syllabus.pdf
+        SAMPLE HEADER BODY:
+        {
+            courseId:'6363cd508425e03859366dcc',
+            uploaderId:'6363f8e1b1c3b2038bc6bc62'
+        }
+        SAMPLE RESPONSE BODY:
+[{
+    "filename": "a_resume.pdf",
+    "size": 84320,
+    "contentType": "application/pdf",
+    "uploadDate": "2022-11-03T17:37:34.493Z",
+    "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+    "courseId": "6363cd508425e03859366dcc",
+    "id": "6363fc5e8ee3fc54ec67bd7f"
+},
+{
+    "filename": "syllabus.pdf",
+    "size": 4220,
+    "contentType": "application/pdf",
+    "uploadDate": "2022-09-03T17:37:34.493Z",
+    "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+    "courseId": "6363cd508425e03859366dcc",
+    "id": "903u28283hf823hoeifes2"
+}]
+    201 STATUS
+
+=====================================================================
+
+ENDPOINT: /:id
+METHODS: GET,DELETE
+
+PURPOSE: The GET method will return a file based on its id, 
+            the DELETE method deletes a file based on id
+
+AUTHENTICATION: Must be admin for PUT, DELETE
+
+EXPECTED CODES:
+        200 - Will indicate the GET, PUT is successful
+        204 - Will indicate DELETE is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+    GET
+        Issue GET to localhost:8080/api/files/6363fae58ee3fc54ec67bd5a
+
+        RESPONSE BODY:
+{
+    "filename": "Screen Shot 2022-02-03 at 10.12.36 AM.png",
+    "size": 56637,
+    "contentType": "image/png",
+    "uploadDate": "2022-11-03T17:31:17.304Z",
+    "uploaderId": "6363f8e1b1c3b2038bc6bc62",
+    "courseId": "6363cd508425e03859366dce",
+    "id": "6363fae58ee3fc54ec67bd5a"
+}, 200 Status
+
+    DELETE
+        Issue DELETE to localhost:3001/api/files/6363fae58ee3fc54ec67bd5a will delete a course
+
+        Expect a 204 response code and response body 1
+
+=====================================================================
+
+ENDPOINT: /download/:id
+METHODS: GET
+
+PURPOSE:  GET and download a file with the id, this will return the actual file data
+
+EXPECTED CODES:
+        200 - Will indicate the GET is successful
+        400 - Something is wrong with your request
+        500 - Server error
+
+EXAMPLES:
+
+    GET localhost:8080/api/files/download/6363fae58ee3fc54ec67bd5a
+    Status code of 200, and a file being downloaded
+

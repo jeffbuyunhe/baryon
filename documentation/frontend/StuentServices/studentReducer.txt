@@ -1,0 +1,14 @@
+The StudentReducer manages the student store and contains all business logic for student 
+related operaiton
+
+=====================================================================
+
+createStudent: creates a student
+
+initializeStudents: get all students
+
+getStudent: get one student by id
+
+deleteStudent: delete a student
+
+updateStudent: update a student

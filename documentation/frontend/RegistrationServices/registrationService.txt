@@ -1,0 +1,13 @@
+The RegistrationService contains all endpoint calls to the registration api
+
+=====================================================================
+
+registerStudents: registers students by a csv file upload
+
+registerFaculty: registers faculty members by a csv file upload
+
+addCourses: add courses by a csv file upload
+
+enrollStudentsToCourse: enroll students to course
+
+enrollInstructorsToCourse: enroll instructors to course

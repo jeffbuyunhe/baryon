@@ -1,0 +1,15 @@
+Admin Signup Success components
+This doc outlines all the files for Admin Signup
+
+=====================================================================
+
+File name: AdminSignupSuccess.js
+Purpose: This page informs the user of successful admin and 
+organization creation, and links to core admin features.
+
+This page is one component and consists of a header of instructions, 
+calls to action in the body, and home button in the footer.
+
+Links to login.
+
+

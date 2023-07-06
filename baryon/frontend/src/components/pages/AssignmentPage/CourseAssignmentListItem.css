@@ -1,0 +1,143 @@
+.course-assignment-item-container{
+    font-size:1.5vw;
+    padding: 3% 0 0 3%;
+}
+
+.course-assignment-title{
+    font-size: 2vw;
+}
+
+.course-assignment-descriptons-padding{
+    padding: 0 0 0 1%;
+}
+
+.course-assignment-subtitle{
+    padding: 0 0 1% 0;
+}
+
+.course-assignment-subtitle-row{
+    display:flex;
+    flex-direction:row;
+    padding: 0.5% 0 0 0;
+    color: #091157
+}
+
+.course-assignment-subtitle-bold{
+    font-weight:1000;
+    padding-right:1.5%;
+}
+
+.course-assignment-create-button{
+    color: #091157;
+    width:35%;
+    padding: 0%;
+    padding: 1% 1% 1% 1%;
+    margin: 2% 2% 1% 0%;
+    border-radius: 7px;
+    background-color:#C3DEF8;
+    border: 3px #C3DEF8 solid;
+    font-size:2.2vw;
+    font-family: Outfit;
+    text-align: center;
+}
+
+.course-assignment-submit-button{
+    width:15%;
+    padding: 1%, 1%, 1%, 1%;
+    margin: 2% 0 2% 0;
+    border-radius: 7px;
+    background-color:#C3DEF8;
+    border: 3px #C3DEF8 solid;
+    font-size:1.7vw;
+    font-family: Outfit;
+    transition: all .2s ease-in;
+}
+
+.course-assignment-submit-button:hover{
+    background-color:#fff;
+}
+
+.course-assignment-submit-button-2 {
+    display: inline-block;
+    font-size: 1.7vw;
+    font-family: Outfit;
+    color: var(--dark-blue);
+    padding: 0.5% 0% 0.5% 0%;
+    width: 28%;
+    text-align: center;
+    margin: 1% 0% 1% 0%;
+    background-color: white;
+    border: 3px solid #091157;
+    border-radius: 7px;
+}
+
+.course-seperation-line{
+    background-color: #979797;
+    width:90%;
+    height:2px;
+    margin: 1% 0 0 0;
+}
+
+.assignment-upload-card {
+    font-size: 1.7vw;
+    color: #091157;
+    width: 88%;
+    height: auto;
+    padding: 1% 0% 1% 2%;
+    margin: 2% 0% 2% 0%;
+    background-color: #C3DEF8;
+    border: 2px solid #C3DEF8;
+    border-radius: 7px;
+}
+
+.assignment-large {
+    font-size: 1.8vw;
+    margin: 0.5% 0% 0.5% 0%;
+}
+
+.assignment-small {
+    font-size: 1.5vw;
+    margin-top: 0.5% 0% 0.5% 0%;
+}
+
+.assignment-icon {
+    margin-left: 86%;
+}
+
+.assignment-page-icon {
+    margin-right: 1vw;
+    position: relative;
+    height: 100%;
+    width: fit-content;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.assignment-form-input{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 2%;
+}
+
+.assignment-signup-label {
+    font-size: 1.5vw;
+    color: #32367C;
+}
+
+.assignment-signup-input{
+    border-color: #3b3f87;
+    width: 48vw;
+    border-radius: 10px;
+    font-size: 1.5vw;
+    font-family: Outfit;
+    padding: 1%;
+    margin: 1% 0%;
+}
+
+.assignment-signup-span{
+    color: rgb(149, 0, 0);
+    font-size: 1vw;
+    display: none
+}

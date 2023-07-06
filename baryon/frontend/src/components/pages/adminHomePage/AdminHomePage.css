@@ -1,0 +1,16 @@
+.admin-homepage-layout {
+    display: grid;
+    grid-template-columns: 5% 75% 20%;
+}
+.admin-management-layout {
+    position: relative;
+    left: 3.5%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+.admin-stats-layout {
+    position: relative;
+    left: 5%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+}

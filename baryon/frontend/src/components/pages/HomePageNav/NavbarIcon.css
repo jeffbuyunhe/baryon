@@ -1,0 +1,17 @@
+
+.navbar-class-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    aspect-ratio : 1 / 1;
+    margin: 10% 10% 15% 10%;
+    border-radius:100%;
+    font-size: 1.2vw;
+}
+
+.profile-pic-img-size{
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    border-radius:100%;
+}

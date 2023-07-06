@@ -1,0 +1,6 @@
+The OrganizationReducer manages the organization store and contains all business 
+logic for organization related operaiton
+
+=====================================================================
+
+setOrganization: sets the organization in redux store

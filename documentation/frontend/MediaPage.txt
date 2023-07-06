@@ -1,0 +1,13 @@
+Media Components
+
+=====================================================================
+
+File name: MediaPage.js
+Purpose: This page displays available videos for users, along with
+sidebars for navigation.
+
+File: MediaContent.js
+Purpose: Organizes media to be displayed in MediaPage.js.
+
+File: Video.js
+Purpose: Renders an individual video for rendering.

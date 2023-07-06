@@ -1,0 +1,11 @@
+The OrganizationService contains all endpoint calls to the organization api
+
+=====================================================================
+
+create: creates an organization
+
+getOrg: gets an organization by id
+
+updateOrg: updates an organization
+
+getOrgByName: gets an organization by name

@@ -1,0 +1,33 @@
+.dropdown {
+    border-radius: 10px;
+    max-width: 99%;
+}
+
+#dropdown-button {
+    font-size: 2vw;
+    font-weight: bold;
+    background: transparent;
+    border: none !important;
+}
+
+.menu {
+    list-style-type: none;  
+    padding-left: 2vw;
+    padding-top: 1vh;
+}
+
+.menu-item {
+    padding-bottom: 2vh;
+}
+
+
+#title {
+    font-family: 'Outfit';
+    color: #091157;
+    font-weight:normal;
+    position: relative;
+    left: 0.5vw;
+    bottom: 0.5vh;
+}
+
+

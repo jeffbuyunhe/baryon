@@ -1,0 +1,17 @@
+.home-page-layout{
+    display:grid;
+    grid-template-columns: 5% 25% 70% 
+}
+
+.assignment-header{
+    font-size: 1.8vw;
+    text-align: left;
+    padding-left: 2%;
+    color: #3b3f87;
+}
+
+.assignment-subheader{
+    font-size: 1.5vw;
+    text-align: left;
+    padding-left: 2%;
+}
