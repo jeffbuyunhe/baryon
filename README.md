@@ -1,15 +1,5 @@
 # Baryon
 
-## Table of Contents
-
-1. [Description](#description)
-2. [Motivation](#motivation)
-3. [The Team](#the-team)
-4. [Installation and Setup](#installation-and-setup)
-5. [Project Structure](#project-structure)
-6. [Contribution](#contribution)
-7. [Useful Resources](#useful-resources)
-
 ## Description
 
 Baryon is a virtual learning management platform with an emphasis on peer-to-peer collaborative learning. The application allows the course instructors to provide resources by maintaining a class feed, post assignments and mark assignments. To promote collaboration the teaching team has access to an analytics dashboard allowing the team to plan future assignments based on feedback from students.
@@ -51,7 +41,7 @@ The server will run on port 3001 and the frontend will run on port 3000.
 
 ## Project Structure
 
-This project was developed with the MERN stack. The structure of the <code>baryon</code> folder is indicated below. The <code>doc</code> folder contains all documentation during the development of the app.
+This project was developed with the MERN stack. The structure of the <code>baryon</code> folder is indicated below.
 
 ### Backend Structure
 The project structure is straight-forward. Below is a description of the directory:
